@@ -29,7 +29,7 @@ extension View {
         key: String = "hasShownOnboarding"
     ) -> some View {
         modifier(
-            OnboardingSheet<EmptyView>(
+            OnboardingSheet(
                 title: title,
                 elements: elements,
                 key: key

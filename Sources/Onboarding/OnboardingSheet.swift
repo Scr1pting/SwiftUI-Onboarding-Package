@@ -24,7 +24,7 @@ internal struct OnboardingSheet<Destination>: ViewModifier where Destination: Vi
         }
     }
     
-    init(title: String, elements: [OnboardingElement], key: String) {
+    init(title: String, elements: [OnboardingElement], key: String) where Destination == EmptyView {
         self.title = title
         self.elements = elements
         self.key = key
