@@ -9,7 +9,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+@available(iOS 14.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
 public struct OnboardingView: View {
     @Binding var showOnboarding: Bool
     
@@ -23,70 +23,70 @@ public struct OnboardingView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .center) {
-            GeometryReader { geometry in
-                VStack(spacing: 0) {
-                    Spacer()
-                    
-                    if geometry.size.width > maxWidth  {
-                        Text(title)
-                            .font(.system(size: geometry.size.width * 0.06, weight: .bold))
-                            .padding(.top, 50)
-                            .padding(.bottom, 50)
-                    } else {
-                        Text(title)
-                            .font(.title)
-                            .padding(.top, 35)
-                            .padding(.bottom, 40)
-                    }
-                    
-                    VStack(alignment: .leading, spacing: 20) {
-                        ForEach(elements) { element in
-                            HStack(spacing: imageTextSpacing) {
-                                element.image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: imageSize, height: imageSize)
-                                    .foregroundColor(.accentColor)
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text(element.header)
-                                        .font(.headline)
-                                    Text(element.description)
-                                        .foregroundColor(.secondary)
-                                }
-                                .padding(.horizontal)
+        VStack(alignment: .center, spacing: 0) {
+            Text(title)
+                .font(.largeTitle)
+                .bold()
+                .multilineTextAlignment(.center)
+                .padding(.top, 80)
+            
+            Spacer()
+            
+            HStack {
+                VStack(alignment: .leading, spacing: elementSpacing) {
+                    ForEach(elements) { element in
+                        HStack(spacing: imageTextSpacing) {
+                            element.image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: imageSize, height: imageSize)
+                                .foregroundColor(.accentColor)
+                            VStack(alignment: .leading, spacing: intraTextSpacing) {
+                                Text(element.header)
+                                    .bold()
+                                Text(element.description)
+                                    .foregroundColor(.secondary)
                             }
+                            .font(.callout)
+                            .padding(.horizontal)
                         }
                     }
-                    .padding(.trailing, 20)
-                    .padding(.leading, 23)
-                    
-                    Spacer()
-                    Spacer()
-                    
-                    Button(action: {
-                        showOnboarding = false
-                    } ){
-                        Text("Continue")
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.accentColor)
-                            .padding()
-                            .frame(width: geometry.size.width > 450 ? 450 : geometry.size.width)
-                        
-                    }
-                    .padding(.bottom, 40)
                 }
+                
+                Spacer()
+            }
+            .padding(.leading, 13)
+            
+            Spacer()
+            Spacer()
+            
+            Button(action: {
+                showOnboarding = false
+            } ){
+                HStack {
+                    Spacer()
+                    Text("Continue")
+                    Spacer()
+                }
+                .bold()
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.accentColor)
+                .clipShape(.rect(cornerRadius: 15))
                 .frame(maxWidth: maxWidth)
             }
+            .padding(.bottom, 45)
         }
-        .padding(.horizontal, 20)
+        .frame(maxWidth: maxWidth)
+        .padding(.horizontal, 25)
     }
     
     // MARK: - Drawing constants
     
-    let imageSize: CGFloat = 50
-    let imageTextSpacing: CGFloat = 20
+    let imageSize: CGFloat = 33
+    let imageTextSpacing: CGFloat = 1
+    let intraTextSpacing: CGFloat = 3
+    let elementSpacing: CGFloat = 25
     let maxWidth: CGFloat = 650
 }
 #endif
