@@ -55,7 +55,7 @@ extension View {
     public func onboarding(
         title: String,
         elements: [OnboardingElement],
-        key: String,
+        key: String = "hasShownOnboarding",
         nextView: some View
     ) -> some View {
         modifier(
