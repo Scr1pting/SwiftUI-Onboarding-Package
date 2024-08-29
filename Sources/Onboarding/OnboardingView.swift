@@ -31,6 +31,7 @@ public struct OnboardingView {
             }) {
                 ContinueButtonContent(title: "Continue")
             }
+            .padding(.horizontal, 25)
             .padding(.bottom, 45)
         }
     }
@@ -55,6 +56,7 @@ public struct OnboardingViewLinked<Destination>: View where Destination: View {
             NavigationLink(destination: nextView) {
                 ContinueButtonContent(title: "Continue")
             }
+            .padding(.horizontal, 25)
             .padding(.bottom, 45)
         }
     }

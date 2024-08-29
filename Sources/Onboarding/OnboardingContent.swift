@@ -55,7 +55,6 @@ struct OnboardingContent: View {
             Spacer()
         }
         .frame(maxWidth: maxWidth)
-        .padding(.horizontal, 25)
     }
     
     // MARK: - Drawing constants
