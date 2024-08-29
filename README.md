@@ -14,8 +14,12 @@ Apple, Inc.
 import Onboarding
 
 struct ContentView: View {
-    @State var showOnboarding = true
-    
+    @State var showOnboarding = UserDefaults.standard.bool(forKey: "onboarding") {
+        didSet {
+            UserDefaults.standard.setValue(!showOnboarding, forKey: "onboarding")
+        }
+    }
+        
     let onboardingElements = [
         OnboardingElement(
             image: Image(systemName: "envelope"),
@@ -44,6 +48,7 @@ struct ContentView: View {
                         title: "What's New in Calendar",
                         elements: onboardingElements
                     )
+                    .
                 }
         }
     }
