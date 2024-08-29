@@ -12,9 +12,9 @@
 import SwiftUI
 
 @available(iOS 14.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
-struct OnboardingContent {
-    private let title: String
-    private let elements: [OnboardingElement]
+struct OnboardingContent: View {
+    let title: String
+    let elements: [OnboardingElement]
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -66,3 +66,4 @@ struct OnboardingContent {
     let elementSpacing: CGFloat = 25
     let maxWidth: CGFloat = 650
 }
+#endif

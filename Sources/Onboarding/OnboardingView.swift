@@ -13,8 +13,8 @@ import SwiftUI
 public struct OnboardingView {
     @Binding var showOnboarding: Bool
     
-    private let title: String
-    private let elements: [OnboardingElement]
+    let title: String
+    let elements: [OnboardingElement]
     
     public var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -32,9 +32,9 @@ public struct OnboardingView {
 
 @available(iOS 14.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
 public struct OnboardingViewLinked<Destination>: View where Destination: View {
-    private let title: String
-    private let elements: [OnboardingElement]
-    @ViewBuilder private let nextView: Destination
+    let title: String
+    let elements: [OnboardingElement]
+    @ViewBuilder let nextView: Destination
     
     public var body: some View {
         VStack(alignment: .center, spacing: 0) {
