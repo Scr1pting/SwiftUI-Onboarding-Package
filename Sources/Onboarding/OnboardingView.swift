@@ -29,7 +29,7 @@ public struct OnboardingView {
             Button(action: {
                 showOnboarding = false
             }) {
-                ContinueButtonContent(title: "Continue")
+                NextButtonContent(title: "Continue")
             }
             .padding(.horizontal, 25)
             .padding(.bottom, 45)
@@ -54,7 +54,7 @@ public struct OnboardingViewLinked<Destination>: View where Destination: View {
             OnboardingContent(title: title, elements: elements)
             
             NavigationLink(destination: nextView) {
-                ContinueButtonContent(title: "Continue")
+                NextButtonContent(title: "Continue")
             }
             .padding(.horizontal, 25)
             .padding(.bottom, 45)
@@ -63,7 +63,7 @@ public struct OnboardingViewLinked<Destination>: View where Destination: View {
 }
 
 @available(iOS 16.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
-public struct ContinueButtonContent: View {
+public struct NextButtonContent: View {
     let title: String
     
     public init(title: String) {
