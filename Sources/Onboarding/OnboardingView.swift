@@ -9,7 +9,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
-@available(iOS 14.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
+@available(iOS 16.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
 public struct OnboardingView {
     @Binding var showOnboarding: Bool
     
@@ -30,7 +30,7 @@ public struct OnboardingView {
     }
 }
 
-@available(iOS 14.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
+@available(iOS 16.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
 public struct OnboardingViewLinked<Destination>: View where Destination: View {
     let title: String
     let elements: [OnboardingElement]
@@ -48,7 +48,7 @@ public struct OnboardingViewLinked<Destination>: View where Destination: View {
     }
 }
 
-@available(iOS 14.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
+@available(iOS 16.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
 public struct ContinueButtonContent: View {
     let title: String
     

@@ -11,7 +11,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
-@available(iOS 14.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
+@available(iOS 16.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
 struct OnboardingContent: View {
     let title: String
     let elements: [OnboardingElement]
