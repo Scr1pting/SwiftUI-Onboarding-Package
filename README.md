@@ -48,7 +48,7 @@ struct ContentView: View {
                         title: "What's New in Calendar",
                         elements: onboardingElements
                     )
-                    .
+                    .interactiveDismissDisabled()
                 }
         }
     }

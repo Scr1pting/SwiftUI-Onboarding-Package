@@ -54,6 +54,7 @@ struct OnboardingContent: View {
             Spacer()
             Spacer()
         }
+        .padding(.horizontal, 25)
         .frame(maxWidth: maxWidth)
     }
     
