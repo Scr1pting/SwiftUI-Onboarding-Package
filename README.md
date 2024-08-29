@@ -14,10 +14,14 @@ Apple, Inc.
 import Onboarding
 
 struct ContentView: View {
-    @State var showOnboarding = UserDefaults.standard.bool(forKey: "onboarding") {
-        didSet {
-            UserDefaults.standard.setValue(!showOnboarding, forKey: "onboarding")
-        }
+    @State var showOnboarding: Bool
+    
+    init() {
+        UserDefaults.standard.register(defaults: [
+            "showOnboarding": true
+        ])
+        
+        showOnboarding = UserDefaults.standard.bool(forKey: "showOnboarding")
     }
         
     let onboardingElements = [
@@ -42,7 +46,9 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             Color.clear
-                .sheet(isPresented: $showOnboarding) {
+                .sheet(isPresented: $showOnboarding, onDismiss: {
+                    UserDefaults.standard.setValue(showOnboarding, forKey: "showOnboarding")
+                }) {
                     OnboardingView(
                         showOnboarding: $showOnboarding,
                         title: "What's New in Calendar",
