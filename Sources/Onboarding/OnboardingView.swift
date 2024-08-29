@@ -16,6 +16,12 @@ public struct OnboardingView {
     let title: String
     let elements: [OnboardingElement]
     
+    public init(showOnboarding: Binding<Bool>, title: String, elements: [OnboardingElement]) {
+        self._showOnboarding = showOnboarding
+        self.title = title
+        self.elements = elements
+    }
+    
     public var body: some View {
         VStack(alignment: .center, spacing: 0) {
             OnboardingContent(title: title, elements: elements)
@@ -36,6 +42,12 @@ public struct OnboardingViewLinked<Destination>: View where Destination: View {
     let elements: [OnboardingElement]
     @ViewBuilder let nextView: Destination
     
+    public init(title: String, elements: [OnboardingElement], nextView: Destination) {
+        self.title = title
+        self.elements = elements
+        self.nextView = nextView
+    }
+    
     public var body: some View {
         VStack(alignment: .center, spacing: 0) {
             OnboardingContent(title: title, elements: elements)
@@ -51,6 +63,10 @@ public struct OnboardingViewLinked<Destination>: View where Destination: View {
 @available(iOS 16.0, macOS 13.0, tvOS 14.0, watchOS 7.0, *)
 public struct ContinueButtonContent: View {
     let title: String
+    
+    public init(title: String) {
+        self.title = title
+    }
     
     public var body: some View {
         HStack {
